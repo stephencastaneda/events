@@ -148,8 +148,13 @@ const pieBuilder = (monkeybuttArray) => {
 //         }
 // pieBuilder(myPies);
 // }
+
+ 
 const findMyPies = (e) => {
     const buttonId = e.target.id;
+    if(buttonId === 'All'){
+        pieBuilder(pies);
+    } else {
     const myPies = [];
     for (let i = 0; i < pies.length; i++){
         if(pies[i].instructor === buttonId) {
@@ -158,31 +163,19 @@ const findMyPies = (e) => {
     }
     pieBuilder(myPies);
 }
-// const myPies = () => {
-//     console.log('inside marysPies');
-//     const myPies = []
-//     for (let i=0; i < pies.length; i++){
-//         if(pies[i].instructor === 'Mary'){
-//         myPies.push(pies[i])
-//         }
-//     }
+};
+const event = () => {
+    document.getElementById('Zoe').addEventListener('click', findMyPies);
+    document.getElementById('Mary').addEventListener('click', findMyPies)
+    document.getElementById('Luke').addEventListener('click', findMyPies)
+    document.getElementById('Steve').addEventListener('click', findMyPies)
+    document.getElementById('All').addEventListener('click', findMyPies)
+    
+};
 
+const init = () => {
+    pieBuilder(pies);
+    event();
+};
 
-// const findMyPies = (e) => {
-//     console.log(e.target.id)
-//     const buttonId = e.target.id;
-//     const myPies = [];
-//     for (let i=0; i < pies.length; i++){
-//         if(pies[i].instructor === 'Mary'){
-//         myPies.push(pies[i])
-
-
-
-
-
-pieBuilder(pies);
-document.getElementById('Zoe').addEventListener('click', findMyPies);
-document.getElementById('Mary').addEventListener('click', findMyPies)
-document.getElementById('Luke').addEventListener('click', findMyPies)
-document.getElementById('Steve').addEventListener('click', findMyPies)
-
+init ();
